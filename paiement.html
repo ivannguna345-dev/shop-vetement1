@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Paiment</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<header>
+	<h1>Paiement</h1>
+	<a href="index.html">Accueil</a>
+	<a href="produits.html">Produits</a>
+	<a href="panier.html">Panier</a>
+</header>
+	<form id="paimentForm">
+		<label>Nom sur la carte:</label>
+		<input type="text" placeholder="Nom" required><br>
+		<label>Numéro de carte:</label>
+		<input type="text" placeholder="Numéro de carte" required><br>
+		<label>Date d'expiration:</label>
+		<input type="month" required><br>
+		<input type="text" maxlength="3" required>
+		<button type="submit">Payer</button>
+	</form>
+<footer>
+		&copy; 2026 Vente de vetements.
+	</footer>
+	<script src="script.js"></script>
+</body>
+</html>

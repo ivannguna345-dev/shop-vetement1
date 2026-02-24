@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Détail Produit</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<header>
+	<h1>Détail du produit</h1>
+	<nav>
+		<a href="index.html">Accueil</a>
+		<a href="produits.html">Produits</a>
+		<a href="panier.html">Panier</a>
+	</nav>
+	</header>
+	<div class="product-detail">
+		<img id="produitImage" src="" alt="">
+		<!--nom du produit-->
+		<h2 id="produitNom"></h2>
+			<!--Prix-->
+			<p id="produitPrix"></p>
+				<!--description-->
+				<p id="produitDescription"></p>
+					<!--bouton ajouter au panier-->
+					<button id="btnAjout">Ajouter au panier</button>
+	</div>
+	<footer>
+		&copy; 2026 Vente de vetements.
+	</footer>
+	<!--script principal-->
+	<script src="script.js"></script>
+	<!--script qui active le bouton ajouter au panier-->
+	<script>
+		document.addEventListener("DOMContentLoaded",()=>{
+			const id  =
+			localStorage.getItem("produitActuel");
+			if(!id){
+				alert("Erreur: aucun produit selectioné !");
+				return;
+			}
+			const produit= produits.find(p=>
+				p.id===id);
+			if(!produit){
+				alert("Erreur: produit introuvable!");
+				return;
+			}
+			document.getElementById("produitImage").src= produit.image;
+			document.getElementById("produitNom").textcontent= produit.nom;
+			document.getElementById("produitPrix").textcontent= produit.prix;
+			document.getElementById("produitDescription").textcontent= produit.description;
+
+			document.getElementById("btnAjout").addEventListener("click",()=>{
+				ajouterPanier( produit.nom, produit.prix);
+				let confirmation= confirm( produit.nom+ "ajouté au panier. Voulez-vous payer maintenant ?");
+				if (confirmation) {
+					window.location.href="paiement.html";
+				}
+		});	
+		});
+	</script>
+
+</body>
+</html>
